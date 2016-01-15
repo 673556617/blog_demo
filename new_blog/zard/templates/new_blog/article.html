@@ -1,0 +1,60 @@
+{% include "new_blog/common/top.html" %}
+{##}
+{#{% load staticfiles %}#}
+{#<link href="{%  static "css/new_style.css" %}" rel="stylesheet">#}
+
+<script type="text/javascript">
+
+{#    document.getElementById("blog").className="active"#}
+{#    document.getElementById("home").className=""#}
+
+</script>
+
+<div class="container">
+    <div class="col-sm-9" name="blog-body">
+
+            <div name="blog-main" >
+              <div class="blog-post">
+                    <h3 class="blog-post-title">
+                        <a href="/article/{{ article.id }}/">{{ article.caption }}</a>
+                    </h3>
+                    <p class="blog-post-meta">{{ article.publish_time }} <a href="#">{{ article.classification }}</a></p>
+                     <p>{{ article.content| safe }}</p>
+              </div><!-- /.blog-post -->
+
+
+
+
+            </div>
+
+
+            <!--blog  content-->
+            <div name="article-content" >
+                <!-- 多说评论框 start -->
+                    <div class="ds-thread" data-thread-key="/article/{{ article.id }}" data-title="{{ article.caption }}" data-url="127.0.0.1/8000"></div>
+                <!-- 多说评论框 end -->
+                <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                <script type="text/javascript">
+                var duoshuoQuery = {short_name:"zardblend"};
+                    (function() {
+                        var ds = document.createElement('script');
+                        ds.type = 'text/javascript';ds.async = true;
+                        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                        ds.charset = 'UTF-8';
+                        (document.getElementsByTagName('head')[0]
+                         || document.getElementsByTagName('body')[0]).appendChild(ds);
+                    })();
+                    </script>
+           </div>            <!-- 多说公共JS代码 end -->
+
+
+
+
+
+    </div>
+
+{% include "new_blog/common/side.html" %}
+
+
+</div>
+{% include "new_blog/common/bottom.html" %}

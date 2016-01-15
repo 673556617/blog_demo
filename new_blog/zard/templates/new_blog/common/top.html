@@ -1,0 +1,99 @@
+{% load staticfiles %}
+<!-- very important->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <title>welcome to zard blog</title>
+    <!-- css js bootstrap jquery-->
+
+   <!-- Bootstrap core CSS -->
+    <link href="{%  static "lib/css/bootstrap.min.css" %} " rel="stylesheet">
+   <!--- jquery-->
+    <script src="{%  static "lib/jquery-2.1.4.js"  %}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- audiojs-->
+{#    <script src="{% static "lib/js/audiojs/audio.min.js" %}"></script>#}
+
+
+    <!-- Custom styles for this template -->
+    <link href="{%  static "css/new_style.css" %}" rel="stylesheet">
+
+    <!-- inital audiojs-->
+    <script>
+        audiojs.events.ready(function() {
+            var as = audiojs.createAll();
+        });
+    </script>
+
+
+
+   <!--should work now lol : dropup-->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+ <!--music player js-->
+<script src="{%  static "lib/js/myaudio.js" %}"></script>
+
+
+<!-- high light code-->
+<link rel="stylesheet" href="{%  static "css/monokai.css" %}">
+
+{#<!-- mark down-->#}
+{#{% load mark %}#}
+<title>zard blend</title>
+</head>
+<body>
+   <div class = "header-zard">
+      <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Zard blend</a>
+
+             </div>
+             <div name = "navbar" class="navbar-collapse collapse">
+                 <ul class = "nav navbar-nav">
+                     <li id="home" class="active" ><a href="/">Home</a></li>
+                     <li  id="blog"><a href="/articles"> Blogs</a></li>
+                     <li  id="classification"><a href="#"> classification</a></li>
+{#                     <li class="audiojswhite"><audio src="{%  static "music/demo.mp3" %}" preload="auto"  /></li>#}
+
+                 </ul>
+                 {% if user.is_authenticated  %}
+                       <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" >
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" >{{ user.username }} </a>
+                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                             <li><a href = "#">settings</a></li>
+                             <li><a href = "#"></a></li>
+                             <li><a href = "/logoff">log out</a></li>
+
+                         </ul>
+                    </li>
+                 </ul>
+                 {% endif %}
+                 {% if not user.is_authenticated   %}
+                 <div>
+                   <ul class="nav navbar-nav navbar-right">
+                       <li class=""><a href="/login"> log in</a></li>
+                       <li class=""><a href="#"> register</a></li>
+                   </ul>
+                 </div>
+                 {% endif %}
+
+             </div>
+
+          </div>
+
+      </nav>
+   </div>
+<br><br><br><br>

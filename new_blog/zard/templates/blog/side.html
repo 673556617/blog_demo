@@ -1,0 +1,28 @@
+<div class="sidebar-module sidebar-module-inset">
+  <h4>关于</h4>
+  <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+</div>
+<div class="sidebar-module">
+  <h4>分类</h4>
+  <ol class="list-unstyled">
+      {% if classification %}
+          {% for item in classification %}
+              <li><a href="#">{{ item.name }}</a></li>
+          {% endfor %}
+      {% endif %}
+  </ol>
+</div>
+<div class="sidebar-module">
+  <h4>友情链接</h4>
+  <ol class="list-unstyled">
+    <li><a href="#">GitHub</a></li>
+    <li><a href="#">Twitter</a></li>
+    <li><a href="#">Facebook</a></li>
+  </ol>
+</div>
+ <div class="sidebar-module">
+  <h4>登录入口</h4>
+  <ol class="list-unstyled">
+    <li><a href="/admin">登录</a></li>
+  </ol>
+</div>

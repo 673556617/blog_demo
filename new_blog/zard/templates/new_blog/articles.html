@@ -1,0 +1,32 @@
+{% include "new_blog/common/top.html" %}
+
+<script type="text/javascript">
+
+    document.getElementById("blog").className="active"
+    document.getElementById("home").className=""
+
+</script>
+
+<div class="container">
+    <div class="col-sm-9" >
+            {%  for article in articles %}
+            <div class="blog-post">
+                    <h3 class="blog-post-title">
+                        <a href="/articles/{{ article.caption }}">{{ article.caption }}</a>
+                    </h3>
+                    <p class="blog-post-meta">{{ article.publish_time }} <a href="#">{{ article.classification }}</a></p>
+            {#        <p>{{ article.content }}</p>#}
+            </div><!-- /.blog-post -->
+
+            {% endfor %}
+    </div>
+
+
+{% include "new_blog/common/side.html" %}
+</div>
+
+
+
+
+</div>
+{% include "new_blog/common/bottom.html" %}

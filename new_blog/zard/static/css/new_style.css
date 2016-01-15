@@ -1,0 +1,119 @@
+.audiojswhite{
+    background-color: #fff;
+    vertical-align:middle;
+    text-align:center;
+
+}
+
+.map{
+    top:10%;
+    left: 5%;
+    height: 80%;
+    width:90%;
+    display: block;
+    position:relative;
+}
+
+.musicplayer{
+    left :55%;
+    right: 15%;
+    bottom:0;
+    #width:80%;
+    height: 6%;
+    margin-top: -60px;/*等于footer的高度*/
+    text-align:center;
+    position:fixed;
+
+
+}
+.audioplayer{
+    #height:50%;
+    display:none;
+}
+.audiocontroller{
+    height:100%;
+}
+.blog-header{
+    top:100px;
+    display:block;
+    left:10%;
+}
+
+.blog-title{
+    left:50%;
+    text-align: center;
+}
+.blog-description{
+    text-align: center;
+}
+/*#body{*/
+    /*text-align: center;*/
+/*}*/
+/*body{*/
+    /*text-align: center;*/
+/*}*/
+
+.aboutme{
+    #background-color: lightgray;
+    width:95%;
+    text-align: center;
+}
+.blog-foote{
+    text-align: center;
+}
+.footstuff{
+     text-align: center;
+}
+
+#logincontainer{
+    width:20%;
+    text-align: center;
+    top:30%;
+}
+
+.form-signin{
+    top:20%;
+}
+
+.blog-footer{
+    clear:both;
+ }
+
+#btn-loop{
+    width:100%;
+}
+
+
+#btn-order{
+    width:100%;
+}
+
+
+#btn-random{
+    width:100%;
+}
+
+
+
+#infowindowimg{
+    max-width: 200;
+    max-height:200;
+
+}
+
+img{
+    max-width: 100%;
+}
+
+textarea{
+
+    text-align:left;
+
+}
+
+
+/*.publishForm{*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+
+/*}*/

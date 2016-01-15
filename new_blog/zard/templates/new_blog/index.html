@@ -1,0 +1,139 @@
+{% include "new_blog/common/top.html" %}
+<div class="container">
+<!--main content-->
+<div name ="main-content" class="col-sm-9">
+   <!-- welcome pic or words-->
+   <div class="blog-header">
+       <h1 class="blog-title">welcome to xx's Blog </h1>
+       <p class="lead blog-description">description of the blog</p>
+   </div>
+   <!--map-->
+   <div id="map" class ="map"></div>
+
+
+   <!--google maps-->
+  <script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: {lat: 40.7127, lng: -74.0059}
+        });
+
+   //set bounds
+
+    setMarkers(map);
+
+
+    }
+
+       //receive data from django
+        var sites = {{ sites |safe }};
+        for (var i=0;i<sites.length;i++){
+{#            alert(sites[i]['name']);#}
+{#            alert(sites[i]['longitude']);#}
+{#            alert(sites[i]['lattitue']);#}
+{#            alert(sites[i]['picSrc']);#}
+{#            alert(sites[i]['description']);#}
+
+
+
+        }
+
+
+       function setMarkers(map) {
+
+         var bounds = new google.maps.LatLngBounds();
+           //info windows array
+            var picSrcArray = new Array();
+            var nameArray = new Array();
+            var descriptionArray=new Array();
+            for (var i=0;i<sites.length;i++){
+
+               var picSrc = sites[i]['picSrc'];
+               var name = sites[i]['name'];alert(name);
+               var description = sites[i]['description'];
+               picSrcArray.push(picSrc);
+               nameArray.push(name);
+               descriptionArray.push(description);
+
+           }
+        var infoWindow = new google.maps.InfoWindow();
+        for (var i = 0; i < sites.length; i++) {
+            var site = sites[i];
+            var marker = new google.maps.Marker({
+            position: {lat: site['lattitue'], lng: site['longitude']},
+            map: map,
+            //icon: image,
+            //shape: shape,
+            title: site['name'],
+            zIndex: 2
+         });
+           //update bounds
+           bounds.extend(new google.maps.LatLng(site['lattitue'], site['longitude']));
+
+            //add correct listener
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                //alert(i);
+
+                var picSrc = picSrcArray[i];
+                var name = nameArray[i];
+                var description = descriptionArray[i];
+                //alert(description);
+                var contentString= "<div><h3>"+ name+"</h3><p><div><img  width ='200' height='160' class='infowindowimg' src="+picSrc+ "></div><div>"+description+"</div></div>";
+                infoWindow.setContent(contentString);
+                infoWindow.open(map, marker);
+                }
+            })(marker, i));
+
+
+
+{#            google.maps.event.addListener(marker,'rightclick',function(){#}
+{##}
+{#                //infowindow.open(map,mark);#}
+{#                //use for publish/ edit article#}
+{#                marker.setMap(null);#}
+{##}
+{#            });#}
+
+
+        }
+           //add center
+           //center: {lat: -33.9, lng: 151.2}
+           map.fitBounds(bounds);
+      }
+
+{#      function setListeners(map,descriptions,mark){#}
+{#        var picsrc = "https://lh3.googleusercontent.com/proxy/xdzlvBUQhohBinO9fNxdLNBv7b1Z4m0tCvvKBZmmd8PMFUbMwbxvmFqFWdKbQEUjjGS-QuI0BmFGIiT5Mg=s408"#}
+{#        var contentsList= new Array()#}
+{#        var contentString="<div><img src="+picsrc+"></div><div>this is a brief introduciton</div>";#}
+{#        var infowindow = new google.maps.InfoWindow({#}
+{#            content: contentString});#}
+{#            maxWidth: 200;#}
+{#            mark.addListener('click',function(){#}
+{#                //alert("fuck");#}
+{#                infowindow.open(map,mark);#}
+{#                maxWidth: 10;#}
+{#            });#}
+{#          //right click#}
+{#          mark.addListener('rightclick',function(){#}
+{#             //alert#}
+{#             alert('right click');#}
+{#              mark.setMap(null);#}
+{#              //mark delete from mark array#}
+{#          });#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#    }#}
+
+    </script>
+</div>
+
+{% include "new_blog/common/side.html" %}
+
+</div>
+
+{% include "new_blog/common/bottom.html" %}
